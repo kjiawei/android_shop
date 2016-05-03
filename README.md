@@ -1,3 +1,2 @@
-# kowloondairy
-our company's app
-#维记app的练习开发 android没怎么开发
+# kowloondairy my exercising app developing
+#2016.5.3 整合台式机KowloonDairyOrder安卓项目【注册 登录 菜单 订单查询】 合并目的：做成一个电子商城的App
