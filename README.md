@@ -4,3 +4,7 @@
 #JsonUtils 
 图片地址
 
+http://www.cnblogs.com/qianxudetianxia/p/4216949.html  Android学习系列(43)--使用事件总线框架EventBus和Otto
+
+http://blog.csdn.net/hguisu/article/details/7776068    八大排序算法
+
