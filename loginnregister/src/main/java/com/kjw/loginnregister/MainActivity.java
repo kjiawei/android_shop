@@ -33,7 +33,15 @@ public class MainActivity extends AppCompatActivity {
         //getWindow().setFlags(WindowManager.LayoutParams.FILL_PARENT, WindowManager.LayoutParams.FILL_PARENT);  //设置全屏
 
         setContentView(R.layout.activity_main);
-        //重复代码太多，看看能不能用依赖注入
+        //进阶：依赖注入 注解【xUtils，afinal类】  更优--》ButterKnife
+        //@ContentView(value = R.layout.activity_main)
+        //public class MainActivity extends BaseActivity
+        //{
+	      //  @ViewInject(R.id.id_btn)
+	      //  private Button mBtn1;
+	      //  @ViewInject(R.id.id_btn02)
+	      //  private Button mBtn2;
+       // }
         editText1 = (EditText)findViewById(R.id.userName);
         editText2 = (EditText)findViewById(R.id.userPhone);
         editText3 = (EditText)findViewById(R.id.docNum);
