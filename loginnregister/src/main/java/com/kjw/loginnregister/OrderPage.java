@@ -11,6 +11,10 @@ public class OrderPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.order_main);
+        
+        //用listView显示订单信息?
+
+        //解析json数据
     }
 }
 
