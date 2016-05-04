@@ -19,26 +19,32 @@ import android.widget.Toast;
 import java.io.UnsupportedEncodingException;
 
 public class MainActivity extends AppCompatActivity {
-    private EditText editText1=null;
-    private EditText editText2=null;
+    private EditText editText1=null;//输入用户名（手机或邮箱）
+    private EditText editText2=null;//输入密码
+    private EditText editText3=null;//输入订单编号
+    private String DocNum;//订单编号
     private Button button1=null;
     private Button button2=null;
+    private Button button3=null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //requestWindowFeature(Window.FEATURE_NO_TITLE); //设置无标题
+        //requestWindowFeature(Window.FEATURE_NO_TITLE); //去除标题
         //getWindow().setFlags(WindowManager.LayoutParams.FILL_PARENT, WindowManager.LayoutParams.FILL_PARENT);  //设置全屏
 
         setContentView(R.layout.activity_main);
-
+        //重复代码太多，看看能不能用依赖注入
         editText1 = (EditText)findViewById(R.id.userName);
         editText2 = (EditText)findViewById(R.id.userPhone);
+        editText3 = (EditText)findViewById(R.id.docNum);
 
         button1 = (Button)findViewById(R.id.loginButton);
         button2 = (Button)findViewById(R.id.registerButton);
+        button3 = (Button)findViewById(R.id.orderSearch);
 
-        button1.setOnClickListener(new myButtonListener1());
-        button2.setOnClickListener(new myButtonListener2());
+        button1.setOnClickListener(new myButtonListener1());//登录
+        button2.setOnClickListener(new myButtonListener2());//注册
+        button3.setOnClickListener(new myButtonListener3());//确认查询
     }
 
     class myButtonListener1 implements View.OnClickListener {
@@ -79,6 +85,48 @@ public class MainActivity extends AppCompatActivity {
                 intent.setClass(MainActivity.this, registerPage.class);
                 startActivity(intent);
             }
+    }
+    
+    class myButtonListener3 implements View.OnClickListener {
+        public void onClick(View v){
+                //得到用户输入的订单编号
+                docNum = editText3.getText().toString();
+                //将订单编号传到URL
+
+                myThread mythread = new myThread();
+
+                //跳转至订单显示页面
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, OrderMain.class);
+                startActivity(intent);
+            }
+    }
+    
+    class myThread extends Thread{
+        public void run(){
+            //第一步，创建post对象
+            HttpPost httpPost = new HttpPost(url);
+
+            //设置HTTP POST请求参数必须用NameValuePair对象
+            List<NameValuePair> params = new ArrayList<NameValuePair>();
+            params.add(new BasicNameValuePair("docNum",docNum));
+
+            HttpResponse httpResponse = null;
+            try{
+                //设置httpPost请求参数
+                httpPost.setEntity(new UrlEncodedFormEntity(params, HTTP.UTF_8));
+                httpResponse = new DefaultHttpClient().execute(httpPost);
+                if(httpResponse.getStatusLine().getStatusCode()==200){
+                    // 第三步，使用getEntity方法获得返回结果
+                    String result = EntityUtils.toString(httpResponse.getEntity());
+                    Log.i(result,"123");
+                }
+            }catch(ClientProtocolException e){
+                e.printStackTrace();
+            }catch(IOException e){
+                e.printStackTrace();
+            }
+        }
     }
 
     @Override
