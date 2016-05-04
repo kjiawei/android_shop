@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         //getWindow().setFlags(WindowManager.LayoutParams.FILL_PARENT, WindowManager.LayoutParams.FILL_PARENT);  //设置全屏
 
         setContentView(R.layout.activity_main);
-        //进阶：依赖注入 注解【xUtils，afinal类】  更优--》ButterKnife
+        //进阶：依赖注入 注解【xUtils，afinal类】  更优--》ButterKnife   查询注解会很慢！
         //@ContentView(value = R.layout.activity_main)
         //public class MainActivity extends BaseActivity
         //{
