@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/name"
+        android:textSize="25sp"
+        android:id="@+id/textView1"
+        android:layout_alignTop="@+id/xingming"
+        android:layout_toStartOf="@+id/sryzm" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/xingming"
+        android:hint="请输入您的名字"
+        android:layout_above="@+id/shouji"
+        android:layout_alignStart="@+id/shouji" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/shouji"
+        android:textSize="25sp"
+        android:id="@+id/textView2"
+        android:layout_toStartOf="@+id/sryzm"
+        android:layout_alignBottom="@+id/shouji" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/shouji"
+        android:hint="请输入您的手机"
+        android:layout_above="@+id/yzm"
+        android:layout_alignEnd="@+id/sryzm" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tijiao"
+        android:id="@+id/tijiao"
+        android:layout_alignTop="@+id/chongxie"
+        android:layout_alignStart="@+id/sryzm" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/chongxie"
+        android:id="@+id/chongxie"
+        android:layout_below="@+id/sryzm"
+        android:layout_toEndOf="@+id/tijiao" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/yzm"
+        android:id="@+id/yzm"
+        android:layout_above="@+id/sryzm"
+        android:layout_centerHorizontal="true" />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sryzm"
+        android:hint="@string/qryzm"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>
